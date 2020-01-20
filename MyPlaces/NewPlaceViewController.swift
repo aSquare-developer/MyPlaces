@@ -20,6 +20,9 @@ class NewPlaceViewController: UITableViewController {
     // MARK: Table view delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        // Создаём свойства для хранения иконок
+        let cameraIcon = #imageLiteral(resourceName: "camera")
+        let photoIcon = #imageLiteral(resourceName: "photo")
         
         if indexPath.row == 0 { // Первая ячейка [Изображение]
             let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -27,10 +30,14 @@ class NewPlaceViewController: UITableViewController {
             let camera = UIAlertAction(title: "Camera", style: .default) { _ in
                 self.chooseImagePicker(source: .camera)
             }
+            camera.setValue(cameraIcon, forKey: "image") // Добавляем иконку к кнопке
+            camera.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment") // Выравниваем по левому краю
             
             let photo = UIAlertAction(title: "Photo", style: .default) { _ in
                 self.chooseImagePicker(source: .photoLibrary)
             }
+            photo.setValue(photoIcon, forKey: "image") // Добавляем иконку к кнопке
+            photo.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment") // Выравниваем по левому краю
             
             let cancel = UIAlertAction(title: "Cancel", style: .cancel)
             
