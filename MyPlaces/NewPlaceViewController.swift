@@ -7,10 +7,10 @@
 //
 
 import UIKit
+import RealmSwift
 
 class NewPlaceViewController: UITableViewController {
     
-    var newPlace: Place?
     var imagesIsChanged = false
 
     @IBOutlet weak var placeImage: UIImageView!
@@ -21,10 +21,9 @@ class NewPlaceViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        saveButton.isEnabled = false
+    
         tableView.tableFooterView = UIView()
-        
+        saveButton.isEnabled = false
         placeName.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
     }
 
@@ -64,20 +63,25 @@ class NewPlaceViewController: UITableViewController {
     }
     
     func saveNewPlace() {
+        
+
 
         var image: UIImage?
-        
+
         if imagesIsChanged {
             image = placeImage.image
         } else {
             image = #imageLiteral(resourceName: "imagePlaceholder")
         }
         
-        newPlace = Place(name: placeName.text!,
-                         location: placeLocation.text,
-                         type: placeType.text,
-                         image: image,
-                         restaurantImage: nil)
+        let imageData = image?.pngData()
+        
+        let newPlace = Place(name: placeName.text!,
+                             location: placeLocation.text,
+                             type: placeType.text,
+                             imageData: imageData)
+        
+        StorageManager.saveObject(newPlace)
         
     }
     
