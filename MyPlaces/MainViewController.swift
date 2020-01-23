@@ -9,9 +9,13 @@
 import UIKit
 import RealmSwift
 
-class MainViewController: UITableViewController {
+class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var places: Results<Place>!
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var reversedSortingButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +26,12 @@ class MainViewController: UITableViewController {
     // MARK: - Table view data source
 
     // Method for displaying the number of cells
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return places.isEmpty ? 0 : places.count
     }
 
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
 
@@ -60,7 +64,7 @@ class MainViewController: UITableViewController {
 //    }
     
     /* iOS 13+ */
-    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let place = places[indexPath.row]
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (_, _, _) in
@@ -102,5 +106,8 @@ class MainViewController: UITableViewController {
         newPlaceVC.savePlace()
         tableView.reloadData()
         
+    }
+    
+    @IBAction func reversedSorting(_ sender: Any) {
     }
 }
