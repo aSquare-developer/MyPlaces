@@ -191,9 +191,12 @@
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dVU-BJ-ZyN">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="32"/>
                                         <segments>
-                                            <segment title="First"/>
-                                            <segment title="Second"/>
+                                            <segment title="Date"/>
+                                            <segment title="Name"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="sortSelection:" destination="c0s-PY-56h" eventType="valueChanged" id="d1y-OJ-bkh"/>
+                                        </connections>
                                     </segmentedControl>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="d7P-rf-82d">
                                         <rect key="frame" x="0.0" y="32" width="375" height="591"/>
@@ -281,12 +284,13 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Yhh-DT-9sQ">
                             <connections>
-                                <segue destination="o92-Me-4cj" kind="presentation" id="vVe-vB-bFN"/>
+                                <segue destination="o92-Me-4cj" kind="presentation" modalTransitionStyle="flipHorizontal" id="vVe-vB-bFN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="reversedSortingButton" destination="OqX-Yx-MI5" id="sH1-dK-Tk4"/>
+                        <outlet property="segmentedControl" destination="dVU-BJ-ZyN" id="fbS-Al-7Sh"/>
                         <outlet property="tableView" destination="d7P-rf-82d" id="Meo-hw-kZA"/>
                     </connections>
                 </viewController>
@@ -321,6 +325,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tEh-zj-76J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="SnellRoundhand-Bold" family="Snell Roundhand" pointSize="24"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
