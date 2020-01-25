@@ -113,21 +113,14 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "showDetail" {
-//            guard let indexPath = tableView.indexPathsForSelectedRows else { return }
-//            let place = places[indexPath.row]
-//            let newPlaceVC = segue.destination as! NewPlaceViewController
-//            newPlaceVC.currentPlace = place
             if let cell = sender as? CustomTableViewCell {
                 if let indexPath = self.tableView.indexPath(for: cell) {
                     let newPlaceVC = segue.destination as! NewPlaceViewController
-                    
-                    if isFiltering {
-                        newPlaceVC.currentPlace = filteredPlaces[indexPath.row]
-                    } else {
-                        newPlaceVC.currentPlace = places[indexPath.row]
-                    }
-                    
-//                    newPlaceVC.currentPlace = places[indexPath.row]
+                        if isFiltering {
+                            newPlaceVC.currentPlace = filteredPlaces[indexPath.row]
+                        } else {
+                            newPlaceVC.currentPlace = places[indexPath.row]
+                        }
                 }
             }
         }
