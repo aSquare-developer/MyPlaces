@@ -11,7 +11,6 @@ import UIKit
 class NewPlaceViewController: UITableViewController {
     
     var currentPlace: Place!
-    
     var imagesIsChanged = false
 
     @IBOutlet weak var placeImage: UIImageView!

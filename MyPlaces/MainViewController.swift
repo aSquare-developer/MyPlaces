@@ -50,7 +50,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             return filteredPlaces.count
         }
         
-        return places.isEmpty ? 0 : places.count
+        return places.count
     }
 
 
@@ -58,21 +58,13 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
 
-        var place = Place()
+        let place = isFiltering ? filteredPlaces[indexPath.row] : places[indexPath.row]
         
-        if isFiltering {
-            place = filteredPlaces[indexPath.row]
-        } else {
-            place = places[indexPath.row]
-        }
-
         cell.nameLabel.text = place.name
         cell.locationLabel.text = place.location
         cell.typeLabel.text = place.type
         cell.imageOfPlace.image = UIImage(data: place.imageData!)
-
-        cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.size.height / 2
-        cell.imageOfPlace.clipsToBounds = true
+        cell.cosmosView.rating = place.rating
 
         return cell
     }
@@ -119,11 +111,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             if let cell = sender as? CustomTableViewCell {
                 if let indexPath = self.tableView.indexPath(for: cell) {
                     let newPlaceVC = segue.destination as! NewPlaceViewController
-                        if isFiltering {
-                            newPlaceVC.currentPlace = filteredPlaces[indexPath.row]
-                        } else {
-                            newPlaceVC.currentPlace = places[indexPath.row]
-                        }
+                        newPlaceVC.currentPlace = isFiltering ? filteredPlaces[indexPath.row] : places[indexPath.row]
                 }
             }
         }
