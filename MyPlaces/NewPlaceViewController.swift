@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import Cosmos
 
 class NewPlaceViewController: UITableViewController {
     
     var currentPlace: Place!
     var imagesIsChanged = false
+    var currentRating = 0.0
 
     @IBOutlet weak var placeImage: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -19,6 +21,7 @@ class NewPlaceViewController: UITableViewController {
     @IBOutlet weak var placeLocation: UITextField!
     @IBOutlet weak var placeType: UITextField!
     @IBOutlet weak var ratingControl: RatingControl!
+    @IBOutlet weak var cosmosView: CosmosView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +34,11 @@ class NewPlaceViewController: UITableViewController {
         placeName.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         
         setupEditScreen()
+        
+        // cosmosView.settings.fillMode = .precise - Fill mode
+        cosmosView.didTouchCosmos = { rating in
+            self.currentRating = rating
+        }
     }
 
     // MARK: Table view delegate
@@ -84,7 +92,7 @@ class NewPlaceViewController: UITableViewController {
                              location: placeLocation.text,
                              type: placeType.text,
                              imageData: imageData,
-                             rating: Double(ratingControl.rating))
+                             rating: currentRating)
         
         
         if currentPlace != nil {
@@ -113,7 +121,7 @@ class NewPlaceViewController: UITableViewController {
             placeName.text = currentPlace?.name
             placeLocation.text = currentPlace?.location
             placeType.text = currentPlace?.type
-            ratingControl.rating = Int(currentPlace.rating)
+            cosmosView.rating = currentPlace.rating
         }
     }
     

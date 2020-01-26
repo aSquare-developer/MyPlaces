@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rkq-EW-vJ7">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -154,11 +154,30 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wOQ-Cb-Q2O" customClass="RatingControl" customModule="MyPlaces" customModuleProvider="target">
                                                     <rect key="frame" x="81" y="48" width="252" height="44"/>
                                                 </stackView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GPi-68-tQg" customClass="CosmosView" customModule="Cosmos">
+                                                    <rect key="frame" x="72" y="45" width="270" height="50"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                            <real key="value" value="50"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="emptyBorderWidth">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="wOQ-Cb-Q2O" firstAttribute="centerX" secondItem="M3z-FE-auY" secondAttribute="centerX" id="Ay9-KO-U5Q"/>
+                                                <constraint firstItem="GPi-68-tQg" firstAttribute="centerX" secondItem="M3z-FE-auY" secondAttribute="centerX" id="d2v-7W-kzP"/>
+                                                <constraint firstItem="GPi-68-tQg" firstAttribute="centerY" secondItem="M3z-FE-auY" secondAttribute="centerY" id="gV4-HI-5BS"/>
                                                 <constraint firstItem="wOQ-Cb-Q2O" firstAttribute="centerY" secondItem="M3z-FE-auY" secondAttribute="centerY" id="t8M-iq-QWd"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="wOQ-Cb-Q2O"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -182,6 +201,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cosmosView" destination="GPi-68-tQg" id="zUf-rY-BPV"/>
                         <outlet property="placeImage" destination="beK-aC-SK3" id="gK4-2P-OcC"/>
                         <outlet property="placeLocation" destination="P2H-XQ-Rpv" id="U9H-zZ-mvi"/>
                         <outlet property="placeName" destination="kJr-oM-niX" id="Ges-Nh-CP7"/>
@@ -259,17 +279,15 @@
                                                             </subviews>
                                                         </stackView>
                                                         <view contentMode="scaleToFill" placeholderIntrinsicWidth="90" placeholderIntrinsicHeight="14" translatesAutoresizingMaskIntoConstraints="NO" id="dCc-fS-jgf" customClass="CosmosView" customModule="Cosmos">
-                                                            <rect key="frame" x="316" y="35.5" width="90" height="14"/>
+                                                            <rect key="frame" x="301" y="35.5" width="106" height="14"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="90" id="ppE-ek-8gv"/>
+                                                                <constraint firstAttribute="width" constant="106" id="ppE-ek-8gv"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="starSize">
-                                                                    <real key="value" value="14"/>
+                                                                    <real key="value" value="17"/>
                                                                 </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="filledStar"/>
-                                                                <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="emptyStar"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                     </subviews>
@@ -279,9 +297,9 @@
                                                         <constraint firstAttribute="bottom" secondItem="BeP-2f-b8q" secondAttribute="bottom" constant="8" id="9SS-9X-1Hv"/>
                                                         <constraint firstItem="BeP-2f-b8q" firstAttribute="top" secondItem="yLA-Df-Osd" secondAttribute="top" constant="8" id="YKW-yI-2N2"/>
                                                         <constraint firstItem="dCc-fS-jgf" firstAttribute="centerY" secondItem="yLA-Df-Osd" secondAttribute="centerY" id="ZDO-VS-db7"/>
-                                                        <constraint firstAttribute="trailing" secondItem="dCc-fS-jgf" secondAttribute="trailing" constant="8" id="cDt-qK-fTL"/>
+                                                        <constraint firstAttribute="trailing" secondItem="dCc-fS-jgf" secondAttribute="trailing" constant="7" id="cDt-qK-fTL"/>
                                                         <constraint firstItem="BeP-2f-b8q" firstAttribute="leading" secondItem="ZS0-Me-kud" secondAttribute="trailing" constant="16" id="d4p-Dk-7qg"/>
-                                                        <constraint firstItem="dCc-fS-jgf" firstAttribute="leading" secondItem="BeP-2f-b8q" secondAttribute="trailing" constant="8" id="flv-ib-4hn"/>
+                                                        <constraint firstItem="dCc-fS-jgf" firstAttribute="leading" secondItem="BeP-2f-b8q" secondAttribute="trailing" constant="-7" id="flv-ib-4hn"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
@@ -377,8 +395,6 @@
     <resources>
         <image name="AZ" width="25" height="24"/>
         <image name="Photo" width="195" height="196"/>
-        <image name="emptyStar" width="255" height="256"/>
-        <image name="filledStar" width="237.5" height="238"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="7cT-5G-2kt"/>
