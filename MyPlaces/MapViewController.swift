@@ -8,11 +8,13 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class MapViewController: UIViewController {
 
     var place = Place()
     let annotationIdentifier = "annotationIdentifier"
+    let locationManager = CLLocationManager()
     
     @IBOutlet var mapView: MKMapView!
     
@@ -22,6 +24,8 @@ class MapViewController: UIViewController {
         mapView.delegate = self
 
         setupPlacemark()
+        
+        checkLocationAuthorization()
     }
 
     @IBAction func closeVC() {
@@ -59,6 +63,45 @@ class MapViewController: UIViewController {
         }
     }
     
+    private func checkLocationServices() {
+        
+        if CLLocationManager.locationServicesEnabled() {
+            setupLocationManager()
+            checkLocationAuthorization()
+        } else {
+            // show alert controller
+        }
+        
+    }
+    
+    private func setupLocationManager() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    
+    
+    private func checkLocationAuthorization() {
+        
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedWhenInUse:
+            mapView.showsUserLocation = true
+            break
+        case .denied:
+            // show alert controller
+            break
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+            break
+        case .restricted:
+            // show alert controller
+            break
+        case .authorizedAlways:
+            break
+        @unknown default:
+            print("New case is available")
+        }
+    }
+    
 }
 
 extension MapViewController: MKMapViewDelegate {
@@ -84,6 +127,14 @@ extension MapViewController: MKMapViewDelegate {
         
         return annotationView
         
+    }
+    
+}
+
+extension MapViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        checkLocationServices()
     }
     
 }
