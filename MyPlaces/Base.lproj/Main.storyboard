@@ -239,13 +239,27 @@
                                     <action selector="closeVC" destination="f23-gV-Ai9" eventType="touchUpInside" id="5LM-Cv-kPU"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDD-CL-wMh">
+                                <rect key="frame" x="324" y="718" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1F4-eM-EWf"/>
+                                    <constraint firstAttribute="width" constant="50" id="8f8-fF-rI5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <state key="normal" image="location" catalog="system"/>
+                                <connections>
+                                    <action selector="centerViewInUserLocation" destination="f23-gV-Ai9" eventType="touchUpInside" id="XNF-AC-ilS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="vba-0f-0b8" firstAttribute="top" secondItem="lQ1-9f-FdE" secondAttribute="top" id="0Nt-Vi-PJG"/>
                             <constraint firstItem="4CP-KU-CyR" firstAttribute="trailing" secondItem="SBN-LQ-dqk" secondAttribute="trailing" constant="40" id="99c-nO-ELj"/>
                             <constraint firstItem="vba-0f-0b8" firstAttribute="trailing" secondItem="4CP-KU-CyR" secondAttribute="trailing" id="Guu-4f-Y9l"/>
+                            <constraint firstItem="4CP-KU-CyR" firstAttribute="trailing" secondItem="MDD-CL-wMh" secondAttribute="trailing" constant="40" id="T99-dY-UQK"/>
                             <constraint firstItem="vba-0f-0b8" firstAttribute="leading" secondItem="4CP-KU-CyR" secondAttribute="leading" id="ZCT-F1-4Y6"/>
+                            <constraint firstItem="4CP-KU-CyR" firstAttribute="bottom" secondItem="MDD-CL-wMh" secondAttribute="bottom" constant="40" id="e0u-gh-YIO"/>
                             <constraint firstAttribute="bottom" secondItem="vba-0f-0b8" secondAttribute="bottom" id="eSL-9z-k2O"/>
                             <constraint firstItem="SBN-LQ-dqk" firstAttribute="top" secondItem="vba-0f-0b8" secondAttribute="top" constant="40" id="kxI-BE-Ew8"/>
                         </constraints>
@@ -440,6 +454,7 @@
         <image name="AZ" width="25" height="24"/>
         <image name="Photo" width="195" height="196"/>
         <image name="camcel" width="128" height="128"/>
+        <image name="location" catalog="system" width="64" height="56"/>
         <image name="map" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
