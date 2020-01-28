@@ -121,7 +121,7 @@
                                                     </constraints>
                                                     <state key="normal" image="Placeholder"/>
                                                     <connections>
-                                                        <segue destination="f23-gV-Ai9" kind="presentation" identifier="getAdress" id="NbS-8m-lXQ"/>
+                                                        <segue destination="f23-gV-Ai9" kind="presentation" identifier="getAddress" id="NbS-8m-lXQ"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -272,7 +272,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="doneButtonPressed:" destination="f23-gV-Ai9" eventType="touchUpInside" id="BM2-6b-8xH"/>
+                                    <action selector="doneButtonPressed" destination="f23-gV-Ai9" eventType="touchUpInside" id="2Xd-Pb-Eqd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDD-CL-wMh">
@@ -309,7 +309,7 @@
                         <viewLayoutGuide key="safeArea" id="4CP-KU-CyR"/>
                     </view>
                     <connections>
-                        <outlet property="adressLabel" destination="p5O-tB-tXD" id="5WZ-TY-UHC"/>
+                        <outlet property="addressLabel" destination="p5O-tB-tXD" id="5WZ-TY-UHC"/>
                         <outlet property="doneButton" destination="hcV-Nw-8uT" id="MKg-Oq-eAa"/>
                         <outlet property="mapPinImage" destination="DK6-Bt-euB" id="NRl-EB-SZZ"/>
                         <outlet property="mapView" destination="vba-0f-0b8" id="cgE-aI-R3L"/>
