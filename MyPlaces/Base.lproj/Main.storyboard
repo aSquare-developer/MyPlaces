@@ -287,10 +287,23 @@
                                     <action selector="centerViewInUserLocation" destination="f23-gV-Ai9" eventType="touchUpInside" id="XNF-AC-ilS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVZ-f6-4mq">
+                                <rect key="frame" x="182" y="718" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="40u-iQ-4y5"/>
+                                    <constraint firstAttribute="height" constant="50" id="spb-ZV-yel"/>
+                                </constraints>
+                                <state key="normal" image="GetDirection"/>
+                                <connections>
+                                    <action selector="goButtonPressed" destination="f23-gV-Ai9" eventType="touchUpInside" id="s64-3S-zC1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="vba-0f-0b8" firstAttribute="top" secondItem="lQ1-9f-FdE" secondAttribute="top" id="0Nt-Vi-PJG"/>
+                            <constraint firstItem="KVZ-f6-4mq" firstAttribute="centerX" secondItem="lQ1-9f-FdE" secondAttribute="centerX" id="0e8-1N-gjc"/>
+                            <constraint firstItem="4CP-KU-CyR" firstAttribute="bottom" secondItem="KVZ-f6-4mq" secondAttribute="bottom" constant="40" id="80b-Gl-6ZO"/>
                             <constraint firstItem="4CP-KU-CyR" firstAttribute="trailing" secondItem="SBN-LQ-dqk" secondAttribute="trailing" constant="40" id="99c-nO-ELj"/>
                             <constraint firstItem="4CP-KU-CyR" firstAttribute="bottom" secondItem="MDD-CL-wMh" secondAttribute="bottom" constant="115" id="BPC-Pm-1G9"/>
                             <constraint firstItem="p5O-tB-tXD" firstAttribute="leading" secondItem="4CP-KU-CyR" secondAttribute="leading" constant="20" id="Efc-83-k68"/>
@@ -311,6 +324,7 @@
                     <connections>
                         <outlet property="addressLabel" destination="p5O-tB-tXD" id="5WZ-TY-UHC"/>
                         <outlet property="doneButton" destination="hcV-Nw-8uT" id="MKg-Oq-eAa"/>
+                        <outlet property="goButton" destination="KVZ-f6-4mq" id="h67-4f-Lxg"/>
                         <outlet property="mapPinImage" destination="DK6-Bt-euB" id="NRl-EB-SZZ"/>
                         <outlet property="mapView" destination="vba-0f-0b8" id="cgE-aI-R3L"/>
                     </connections>
@@ -498,6 +512,7 @@
     </scenes>
     <resources>
         <image name="AZ" width="25" height="24"/>
+        <image name="GetDirection" width="50" height="50"/>
         <image name="Location" width="30" height="30"/>
         <image name="Photo" width="195" height="196"/>
         <image name="Pin" width="42" height="42"/>
