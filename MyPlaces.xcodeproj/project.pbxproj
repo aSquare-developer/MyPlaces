@@ -10,6 +10,7 @@
 		4DE9D0717178B156EE164123 /* Pods_MyPlaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B19E2BE58B3BC00A16CD507 /* Pods_MyPlaces.framework */; };
 		7553404D23DC91CD00F6BD92 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7553404C23DC91CD00F6BD92 /* RatingControl.swift */; };
 		7553404F23DE149200F6BD92 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7553404E23DE149200F6BD92 /* MapViewController.swift */; };
+		7585199023F07FA500BFA1FA /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7585198F23F07FA400BFA1FA /* MapManager.swift */; };
 		75D7785F23D4AC2200A06599 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D7785E23D4AC2200A06599 /* AppDelegate.swift */; };
 		75D7786123D4AC2200A06599 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D7786023D4AC2200A06599 /* SceneDelegate.swift */; };
 		75D7786623D4AC2200A06599 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75D7786423D4AC2200A06599 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		3B19E2BE58B3BC00A16CD507 /* Pods_MyPlaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyPlaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7553404C23DC91CD00F6BD92 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		7553404E23DE149200F6BD92 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		7585198F23F07FA400BFA1FA /* MapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
 		75D7785B23D4AC2200A06599 /* MyPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75D7785E23D4AC2200A06599 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75D7786023D4AC2200A06599 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,54 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		7585199123F08A6300BFA1FA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				75D7787223D4B1CE00A06599 /* MainViewController.swift */,
+				75D7787823D5F6B900A06599 /* NewPlaceViewController.swift */,
+				7553404E23DE149200F6BD92 /* MapViewController.swift */,
+				75D7787423D4DD6700A06599 /* CustomTableViewCell.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		7585199223F08A9500BFA1FA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				75D7787623D5E1A200A06599 /* PlaceModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7585199323F08AA200BFA1FA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7585198F23F07FA400BFA1FA /* MapManager.swift */,
+				75D967DC23D74EFA00CF64EA /* StorageManager.swift */,
+				7553404C23DC91CD00F6BD92 /* RatingControl.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		7585199423F08AB900BFA1FA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				75D7785E23D4AC2200A06599 /* AppDelegate.swift */,
+				75D7786723D4AC2800A06599 /* Assets.xcassets */,
+				75D7786C23D4AC2800A06599 /* Info.plist */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		7585199523F08ADF00BFA1FA /* InterfaceBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				75D7786423D4AC2200A06599 /* Main.storyboard */,
+				75D7786923D4AC2800A06599 /* LaunchScreen.storyboard */,
+			);
+			path = InterfaceBuilder;
+			sourceTree = "<group>";
+		};
 		75D7785223D4AC2200A06599 = {
 			isa = PBXGroup;
 			children = (
@@ -84,19 +134,12 @@
 		75D7785D23D4AC2200A06599 /* MyPlaces */ = {
 			isa = PBXGroup;
 			children = (
-				75D7785E23D4AC2200A06599 /* AppDelegate.swift */,
-				75D7787223D4B1CE00A06599 /* MainViewController.swift */,
+				7585199123F08A6300BFA1FA /* ViewControllers */,
+				7585199323F08AA200BFA1FA /* Helpers */,
+				7585199223F08A9500BFA1FA /* Models */,
+				7585199423F08AB900BFA1FA /* Support Files */,
+				7585199523F08ADF00BFA1FA /* InterfaceBuilder */,
 				75D7786023D4AC2200A06599 /* SceneDelegate.swift */,
-				75D7786423D4AC2200A06599 /* Main.storyboard */,
-				75D7787823D5F6B900A06599 /* NewPlaceViewController.swift */,
-				75D7787623D5E1A200A06599 /* PlaceModel.swift */,
-				75D967DC23D74EFA00CF64EA /* StorageManager.swift */,
-				75D7787423D4DD6700A06599 /* CustomTableViewCell.swift */,
-				7553404E23DE149200F6BD92 /* MapViewController.swift */,
-				7553404C23DC91CD00F6BD92 /* RatingControl.swift */,
-				75D7786723D4AC2800A06599 /* Assets.xcassets */,
-				75D7786923D4AC2800A06599 /* LaunchScreen.storyboard */,
-				75D7786C23D4AC2800A06599 /* Info.plist */,
 			);
 			path = MyPlaces;
 			sourceTree = "<group>";
@@ -230,6 +273,7 @@
 				75D967DD23D74EFA00CF64EA /* StorageManager.swift in Sources */,
 				7553404F23DE149200F6BD92 /* MapViewController.swift in Sources */,
 				7553404D23DC91CD00F6BD92 /* RatingControl.swift in Sources */,
+				7585199023F07FA500BFA1FA /* MapManager.swift in Sources */,
 				75D7787723D5E1A200A06599 /* PlaceModel.swift in Sources */,
 				75D7787523D4DD6700A06599 /* CustomTableViewCell.swift in Sources */,
 				75D7786123D4AC2200A06599 /* SceneDelegate.swift in Sources */,
@@ -379,7 +423,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y28ANL9BKG;
-				INFOPLIST_FILE = MyPlaces/Info.plist;
+				INFOPLIST_FILE = "MyPlaces/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -398,7 +442,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y28ANL9BKG;
-				INFOPLIST_FILE = MyPlaces/Info.plist;
+				INFOPLIST_FILE = "MyPlaces/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
